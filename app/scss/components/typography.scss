@@ -1,6 +1,121 @@
 @use '../util' as *;
 @use '../global' as *;
 
-h1{
-    font-size: rem(28);
+body.dark header.title{
+    font-size: 14px;
+
+    h1{
+        font-size: rem(24);
+        align-self: flex-start;
+    
+        span{
+            display: block;
+            color: var(--profile-text-color);
+            font-size: rem(16);
+            margin-top: 0.2em;
+        }
+    } 
+
+    @include breakpoint(medium){
+
+        h1{
+           font-size: rem(32);
+       
+           span{
+               display: block;
+               color: var(--profile-text-color);
+               font-size: rem(16);
+               margin-top: 0.2em;
+           }
+       } 
+    };
+}
+
+body.dark section.top{
+    text-align: center;
+
+    .card-grid .profile{
+        color: var(--profile-text-color);
+        font-size: rem(12);
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    .card-grid h2{
+        font-size: rem(52);
+        margin-bottom: 1.5rem;
+
+        span{
+            display: block;
+            color: var(--profile-text-color);
+            font-size: rem(12);
+            font-weight: 400;
+            letter-spacing: rem(5);
+            text-transform: uppercase;
+        }
+    }
+
+    .card-grid .indicator-up, .card-grid .indicator-down{
+        font-weight: 700;
+
+        img{
+            margin-right: rem(5);
+        }
+    }
+
+    .card-grid .indicator-up{
+        color: var(--up-indicator);
+    }
+
+    .card-grid .indicator-down{
+        color: var(--down-indicator);
+    }
+}
+
+body.dark section.bottom{
+    h3{
+        font-size: rem(24);
+    }
+
+    .card-grid .indicator-up, .card-grid .indicator-down{
+        font-weight: 700;
+    
+        img{
+            margin-right: rem(5);
+        }
+    }
+    
+    .card-grid .indicator-up{
+        color: var(--up-indicator);
+    }
+    
+    .card-grid .indicator-down{
+        color: var(--down-indicator);
+    }
+
+    .card-grid .info{
+        color: var(--profile-text-color);
+        font-size: rem(14);
+        font-weight: 700;
+
+        &__number h4{
+            color: var(--main-text);
+            font-size: rem(32);
+        }
+
+        &__number span{
+            font-size: rem(14);
+            font-weight: 700;
+        }
+    }
+}
+
+body.light{
+    .title .toggle::before{
+        color: var(--profile-text-color);
+    }
+
+    section.bottom h3{
+        color: var(--profile-text-color);
+    }
 }

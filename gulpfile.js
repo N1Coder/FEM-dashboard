@@ -46,7 +46,7 @@ function watchTask() {
   watch('*.html', browserSyncReload);
   watch(
     // You can delete the 'app/**/*.js' if not using any Javascript file
-    ['app/scss/**/*.scss', 'app/js/**/*.js'], {delay: 100},
+    ['app/scss/**/*.scss', 'app/js/*.js'], {delay: 100},
     series(scssTask, browserSyncReload)
   );
 }

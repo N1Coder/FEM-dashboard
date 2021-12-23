@@ -1,0 +1,104 @@
+@use 'global' as *;
+@use 'util' as *;
+
+body.dark{
+    background: var(--main-bg);
+    color: var(--main-text);
+
+    // Mobile Toggle Styling
+    .container-toggle{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 85%;
+        margin: 1.5rem auto;
+
+        span.indicator{
+            user-select: none;
+            font-weight: 700;
+            color: var(--profile-text-color);
+            transition: 350ms;
+        }
+
+        span.d-none{
+            display: none;
+        }
+        
+        div.light-mode span{
+            transform: translateX(150%);
+        }
+
+        .toggle{
+            position: relative;
+            padding: 0.2rem;
+            width: 60px;
+            border-radius: 80px;
+            background: var(--toggle);
+            cursor: pointer;
+
+            span{
+                display: block;
+                width: 40%;
+                aspect-ratio: 1 / 1;
+                background: var(--top-main-bg);
+                border-radius: 50%;
+                transition: 350ms;
+            }
+        }
+    }
+
+
+    // Tab And Dekstop Toggle
+    @include breakpoint(medium){
+        .container-toggle{
+            display: none;
+        }
+
+        .title .toggle{
+            position: relative;
+            padding: 0.2rem;
+            width: 60px;
+            border-radius: 80px;
+            background: var(--toggle);
+            cursor: pointer;
+    
+            // Add Dark Mode Indicator
+            &::before{
+                content: 'Dark Mode';
+                position: absolute;
+                left: -150%;
+                top: 50%;
+                transform: translateY(-50%);
+                color: var(--profile-text-color);
+                font-weight: 700;
+                transition: 350ms;
+            }
+            
+            span{
+                display: block;
+                width: 40%;
+                aspect-ratio: 1 / 1;
+                background: var(--top-main-bg);
+                border-radius: 50%;
+                transition: 350ms;
+            }
+        };
+    }
+}
+
+body.light{
+
+    @include breakpoint(medium){
+        .title .toggle{
+            // Remove Dark Mode Indicator And Add Light Mode
+            &::before{
+                content: 'Light Mode';
+                opacity: 1;
+            }
+            
+            span.light-mode{
+                transform: translateX(150%);
+            }
+        }
+    };
+}

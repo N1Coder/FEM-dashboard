@@ -15,22 +15,38 @@
   <script defer src="app/js/index.js"></script>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <!-- <style>
+  <style>
     .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style> -->
+    .attribution a { color: hsl(263, 100%, 40%); }
+  </style>
 </head>
-<body>
 
-  <header>
-    <h1>Social Media Dashboard <br> <span>Total Followers: 23,004</span></h1>
+<body class="dark">
 
-    <div class="toggle"></div>
+  <div class="top-bg"></div>
+
+  <header class="title">
+    <h1>Social Media Dashboard <span>Total Followers: 23,004</span></h1>
+    
+    <!-- Hidden This When Mobile Layout -->
+    <div onclick="toggleMode()" id="toggle-light" class="toggle">
+      <span></span>
+    </div>
   </header>
+
+  <!-- Toggle For Mobile -->
+  <div class="container-toggle">
+    <span class="indicator indicator-dark">Dark Mode</span>
+    <span class="indicator indicator-light d-none">Light Mode</span>
+
+    <div onclick="toggleMode()" id="toggle-mobile-light" class="toggle">
+      <span></span>
+    </div>
+  </div>
 
   <section class="top">
     
-    <div class="card-grid card-facebook">
+    <div class="card-grid card-grid__facebook">
       <div class="profile">
         <img src="images/icon-facebook.svg" alt="Facebook">
         <span>@nathanf</span>
@@ -44,7 +60,7 @@
       </div>
     </div>
 
-    <div class="card-grid card-twitter">
+    <div class="card-grid card-grid__twitter">
       <div class="profile">
         <img src="images/icon-twitter.svg" alt="Twitter">
         <span>@nathanf</span>
@@ -58,7 +74,7 @@
       </div>
     </div>
 
-    <div class="card-grid card-instagram">
+    <div class="card-grid card-grid__instagram">
       <div class="profile">
         <img src="images/icon-instagram.svg" alt="Instagram">
         <span>@realnathanf</span>
@@ -72,7 +88,7 @@
       </div>
     </div>
 
-    <div class="card-grid card-youtube">
+    <div class="card-grid card-grid__youtube">
       <div class="profile">
         <img src="images/icon-youtube.svg" alt="Youtube">
         <span>Nathan F.</span>
@@ -80,7 +96,7 @@
 
       <h2>8239 <br> <span>Subscribers</span></h2>
 
-      <div class="indicator-up">
+      <div class="indicator-down">
         <img src="images/icon-down.svg" alt="icon-down">
         <span>144 Today</span>
       </div>
@@ -99,10 +115,10 @@
         <img src="images/icon-facebook.svg" alt="Facebook">
       </div>
 
-      <div class="info info-number">
+      <div class="info info__number">
         <h4>87</h4>
         
-        <div class="indicator">
+        <div class="indicator-up">
           <img src="images/icon-up.svg" alt="icon-up">
           <span>3%</span>
         </div>
@@ -116,10 +132,10 @@
         <img src="images/icon-facebook.svg" alt="Facebook">
       </div>
 
-      <div class="info info-number">
+      <div class="info info__number">
         <h4>52</h4>
         
-        <div class="indicator">
+        <div class="indicator-down">
           <img src="images/icon-down.svg" alt="icon-down">
           <span>2%</span>
         </div>
@@ -133,10 +149,10 @@
         <img src="images/icon-instagram.svg" alt="Instagram">
       </div>
 
-      <div class="info info-number">
+      <div class="info info__number">
         <h4>5462</h4>
         
-        <div class="indicator">
+        <div class="indicator-up">
           <img src="images/icon-up.svg" alt="icon-up">
           <span>2257%</span>
         </div>
@@ -150,10 +166,10 @@
         <img src="images/icon-instagram.svg" alt="Instagram">
       </div>
 
-      <div class="info info-number">
+      <div class="info info__number">
         <h4>52k</h4>
         
-        <div class="indicator">
+        <div class="indicator-up">
           <img src="images/icon-up.svg" alt="icon-up">
           <span>1375%</span>
         </div>
@@ -167,10 +183,10 @@
         <img src="images/icon-twitter.svg" alt="Twitter">
       </div>
 
-      <div class="info info-number">
+      <div class="info info__number">
         <h4>117</h4>
         
-        <div class="indicator">
+        <div class="indicator-up">
           <img src="images/icon-up.svg" alt="icon-up">
           <span>303%</span>
         </div>
@@ -184,10 +200,10 @@
         <img src="images/icon-twitter.svg" alt="Twitter">
       </div>
 
-      <div class="info info-number">
+      <div class="info info__number">
         <h4>507</h4>
         
-        <div class="indicator">
+        <div class="indicator-up">
           <img src="images/icon-up.svg" alt="icon-up">
           <span>553%</span>
         </div>
@@ -201,10 +217,10 @@
         <img src="images/icon-youtube.svg" alt="Youtube">
       </div>
 
-      <div class="info info-number">
+      <div class="info info__number">
         <h4>107</h4>
         
-        <div>
+        <div class="indicator-down">
           <img src="images/icon-down.svg" alt="icon-down">
           <span>19%</span>
         </div>
@@ -218,10 +234,10 @@
         <img src="images/icon-youtube.svg" alt="Youtube">
       </div>
 
-      <div class="info info-number">
+      <div class="info info__number">
         <h4>1407</h4>
         
-        <div>
+        <div class="indicator-down">
           <img src="images/icon-down.svg" alt="icon-down">
           <span>12%</span>
         </div>
@@ -230,9 +246,9 @@
 
   </section>
   
-  <!-- <div class="attribution">
+  <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
+    Coded by <a href="#">N1Coder</a>.
+  </div>
 </body>
 </html>
